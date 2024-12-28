@@ -5,7 +5,7 @@ function Embed({title}) {
     return (
         <span>
             <div>
-                <iframe title={title} src='https://www.youtube.com' width='300px' height='400px' sandbox='allow-scripts' loading='lazy'></iframe>
+                <iframe title={title} src='' width='300px' height='400px' sandbox='allow-scripts allow-same-origin allow-forms' loading='lazy'></iframe>
             </div>
             <Link />
         </span>
