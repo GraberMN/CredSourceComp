@@ -37,7 +37,13 @@
   }
 }
 
-#embedWrapper {
+#embedWrapperRow1 {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+#embedWrapperRow2 {
   display: flex;
   flex-flow: row;
   justify-content: center;
