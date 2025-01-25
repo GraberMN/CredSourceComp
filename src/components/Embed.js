@@ -4,16 +4,16 @@ import Link from './Link.js'
 
 function Embed({ title }) {
     const [link, setLink] = useState("")
-    const [currentLink, setCurrentLink] = useState("")
+    const [currentLink, setCurrentLink] = useState(null)
     const showEmbed = () => {
         setCurrentLink(link)
     }
     return (
         <span>
             <div>
-                <iframe title={title} src={currentLink} width='225px' height='350px' sandbox='allow-scripts allow-same-origin allow-forms' loading='lazy'></iframe>
+                <iframe title={title} src={currentLink} width='225px' height='350px' sandbox='allow-scripts allow-forms' loading='lazy'></iframe>
             </div>
-            <Link link={link} setLink={setLink} showEmbed={showEmbed} />
+            <Link title={title} link={link} setLink={setLink} showEmbed={showEmbed} />
         </span>
     )
 }

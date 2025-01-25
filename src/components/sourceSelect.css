@@ -1,0 +1,14 @@
+.option {
+    border: solid 1px black;
+    padding-top: 0px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.option:hover {
+    background-color: rgb(201, 255, 201);
+}
+
+#option3 {
+    margin-right: 8px;
+}

@@ -1,12 +1,11 @@
 import React from 'react'
-import { useState } from 'react'
 
-function Link({link, setLink, showEmbed}) {
+function Link({link, setLink, showEmbed, title}) {
     return (
         <span>
-            <label>Link: </label>
-            <input type='text' value={link} size='12' onChange={(e) => setLink(e.target.value)}></input>
-            <button onClick={() => showEmbed()}>Confirm</button>
+            <label htmlFor={`${title}LinkInput`}>Link: </label>
+            <input type='text' id={`${title}LinkInput`} value={link} size='12' onChange={(e) => setLink(e.target.value)}></input>
+            <button type='button' onClick={() => showEmbed()}>Confirm</button>
         </span>
     )
 }
