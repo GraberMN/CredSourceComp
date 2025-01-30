@@ -1,30 +1,33 @@
 import React from 'react'
+import { useRef } from 'react'
 import './sourceSelect.css'
 
-function SourceSelect({ sourceNum, setSourceNum, newSourceNum, setNewSourceNum }) {
+function SourceSelect({ sourceNum, setSourceNum }) {
+    const sourceNumRef = useRef(2);
+
     return (
         <div>
             <span>How many sources? (2-4) </span>
             <span id='sourceNumSelect'>
                 <span className='option' id='option1' onClick={() => {
-                    setSourceNum(2) 
-                    console.log(sourceNum)
+                    sourceNumRef.current = 2;
+                    console.log('Selected sourceNum:', sourceNumRef.current);
                 }}>2</span>
                 <span className='option' id='option2' onClick={() => {
-                    setSourceNum(3)
-                    console.log(sourceNum)
+                    sourceNumRef.current = 3;
+                    console.log('Selected sourceNum:', sourceNumRef.current);
                 }}>3</span>
                 <span className='option' id='option3' onClick={() => {
-                    setSourceNum(4)
-                    console.log(sourceNum)
+                    sourceNumRef.current = 4;
+                    console.log('Selected sourceNum:', sourceNumRef.current);
                 }}>4</span>
             </span>
             <button type='button' onClick={() => {
-                setNewSourceNum(sourceNum)
-                console.log(newSourceNum)
+                setSourceNum(sourceNumRef.current);
+                console.log('Confirmed sourceNum:', sourceNumRef.current);
             }}>Confirm</button>
         </div>
-    )
+    );
 }
 
 export default SourceSelect

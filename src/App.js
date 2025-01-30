@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Embed from './components/Embed.js';
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer} from 'react';
 import SourceSelect from './components/SourceSelect.js';
 
 const initialState = { embed3Display: 'none', embed4Display: 'none' }
@@ -18,34 +18,37 @@ const reducer = (state, action) => {
   }
 }
 
+let newEmbed3Style = { display: 'none' }
+let newEmbed4Style = { display: 'none' }
+
 function App() {
   const [sourceNum, setSourceNum] = useState(2)
-  const [newSourceNum, setNewSourceNum] = useState(2)
   const [displayEmbed, dispatch] = useReducer(reducer, initialState)
   const [embed3Style, setEmbed3Style] = useState({ display: 'none' })
   const [embed4Style, setEmbed4Style] = useState({ display: 'none' })
   useEffect(() => {
-    let newEmbed3Style
-    let newEmbed4Style
-    if (newSourceNum === 2) {
+    console.log(sourceNum)
+    newEmbed3Style = { display: 'none' }
+    newEmbed4Style = { display: 'none' }
+    if (sourceNum === 2) {
       newEmbed3Style = { display: 'none' }
       newEmbed4Style = { display: 'none' }
-    } else if (newSourceNum === 3) {
+    } else if (sourceNum === 3) {
       newEmbed3Style = { display: 'flex' }
       newEmbed4Style = { display: 'none' }
     } else {
       newEmbed3Style = { display: 'flex' }
       newEmbed4Style = { display: 'flex' }
     }
+    console.log(newEmbed3Style)
+    console.log(newEmbed4Style)
     setEmbed3Style(newEmbed3Style)
     setEmbed4Style(newEmbed4Style)
-    console.log(embed3Style)
-    console.log(embed4Style)
-  }, [newSourceNum])
+  }, [sourceNum])
   return (
     <div className="App">
       <span>
-        <SourceSelect sourceNum={sourceNum} setSourceNum={setSourceNum} newSourceNum={newSourceNum} setNewSourceNum={setNewSourceNum} />
+        <SourceSelect sourceNum={sourceNum} setSourceNum={setSourceNum} />
       </span>
       <span id="embedWrapperRow1">
         <Embed className="embed" title="embed1" />

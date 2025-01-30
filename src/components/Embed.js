@@ -1,8 +1,8 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from './Link.js'
 
-function Embed({ title }) {
+function Embed({ title, style }) {
     const [link, setLink] = useState("")
     const [currentLink, setCurrentLink] = useState(null)
     const showEmbed = () => {
@@ -11,9 +11,11 @@ function Embed({ title }) {
     return (
         <span>
             <div>
-                <iframe title={title} src={currentLink} width='225px' height='350px' sandbox='allow-scripts allow-forms' loading='lazy'></iframe>
+                <iframe title={title} src={currentLink} width='225px' height='350px' sandbox='allow-scripts allow-forms' loading='lazy' style={style}></iframe>
             </div>
-            <Link title={title} link={link} setLink={setLink} showEmbed={showEmbed} />
+            <span style={style}>
+                <Link title={title} link={link} setLink={setLink} showEmbed={showEmbed} />
+            </span>
         </span>
     )
 }
