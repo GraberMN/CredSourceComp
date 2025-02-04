@@ -4,7 +4,6 @@ import './sourceSelect.css'
 
 function SourceSelect({ sourceNum, setSourceNum }) {
     const sourceNumRef = useRef(2);
-
     return (
         <div>
             <span>How many sources? (2-4) </span>

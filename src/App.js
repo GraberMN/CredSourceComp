@@ -1,29 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Embed from './components/Embed.js';
-import { useState, useEffect, useReducer} from 'react';
+import { useState, useEffect} from 'react';
 import SourceSelect from './components/SourceSelect.js';
-
-const initialState = { embed3Display: 'none', embed4Display: 'none' }
-const reducer = (state, action) => {
-  switch (action) {
-    case '2':
-      return initialState
-    case '3':
-      return { embed3Display: 'flex', embed4Display: 'none' }
-    case '4':
-      return { embed3Display: 'flex', embed4Display: 'flex' }
-    default:
-      return state
-  }
-}
 
 let newEmbed3Style = { display: 'none' }
 let newEmbed4Style = { display: 'none' }
 
 function App() {
   const [sourceNum, setSourceNum] = useState(2)
-  const [displayEmbed, dispatch] = useReducer(reducer, initialState)
   const [embed3Style, setEmbed3Style] = useState({ display: 'none' })
   const [embed4Style, setEmbed4Style] = useState({ display: 'none' })
   useEffect(() => {

@@ -5,6 +5,18 @@ import Link from './Link.js'
 function Embed({ title, style }) {
     const [link, setLink] = useState("")
     const [currentLink, setCurrentLink] = useState(null)
+    
+    useEffect(() => {
+        if (title.includes('3') && JSON.stringify(style).includes('none')) {
+            setLink("")
+            setCurrentLink(null)
+        }
+        if (title.includes('4') && JSON.stringify(style).includes('none')) {
+            setLink("")
+            setCurrentLink(null)
+        } 
+    }, [style])
+
     const showEmbed = () => {
         setCurrentLink(link)
     }
