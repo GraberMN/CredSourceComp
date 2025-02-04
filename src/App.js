@@ -3,6 +3,7 @@ import './App.css';
 import Embed from './components/Embed.js';
 import { useState, useEffect} from 'react';
 import SourceSelect from './components/SourceSelect.js';
+import Header from './components/Header.js';
 
 let newEmbed3Style = { display: 'none' }
 let newEmbed4Style = { display: 'none' }
@@ -32,6 +33,7 @@ function App() {
   }, [sourceNum])
   return (
     <div className="App">
+      <Header />
       <span>
         <SourceSelect sourceNum={sourceNum} setSourceNum={setSourceNum} />
       </span>
